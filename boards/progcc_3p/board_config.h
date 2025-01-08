@@ -157,7 +157,7 @@
 #define RGB_DRIVER_PIO_INSTANCE 0
 #define RGB_DRIVER_REFRESHRATE  120 // HZ
 
-#define HOJA_RGB_GROUPS_NUM 16
+#define HOJA_RGB_GROUPS_NUM 15
 #define HOJA_RGB_GROUP_NAMES { \
     {"A"}, {"B"}, {"X"}, {"Y"}, \
     {"D-Pad"}, {"L Stick"}, {"R Stick"}, \
