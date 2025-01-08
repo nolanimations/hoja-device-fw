@@ -30,9 +30,10 @@ set(ROOT_DIR    ${CMAKE_CURRENT_LIST_DIR})
 
 # Define your list of directories
 set(BULK_PROJECTS_DIRS
+    boards/progcc_3
+    boards/progcc_3p
     boards/progcc_3.1
     boards/progcc_3.2
-    boards/progcc_3p
 )
 
 # Iterate through the list
