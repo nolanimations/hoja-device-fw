@@ -1,10 +1,11 @@
 #include "hoja.h"
 #include "input/button.h"
+
 #include "board_config.h"
 #include "main.h"
 #include "hardware/gpio.h"
 #include "pico/stdlib.h"
-#include "pico/bootrom.h" 
+#include "pico/bootrom.h"
 
 /*
 button_remap_s user_map = {
@@ -28,7 +29,7 @@ button_remap_s user_map = {
     .button_stick_left = MAPCODE_B_STICKL,
     .button_stick_right = MAPCODE_B_STICKR,
 };
-*/ 
+*/
 
 void _local_setup_btn(uint32_t gpio)
 {

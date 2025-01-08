@@ -1,3 +1,4 @@
+// PROGCC 3.1 BOARD CONFIG
 #ifndef BOARD_CONFIG_H
 #define BOARD_CONFIG_H
 
@@ -11,7 +12,7 @@
 
 #define HOJA_FW_VERSION 0x0A30
 
-#define HOJA_PRODUCT        "ProGCC 3.2"
+#define HOJA_PRODUCT        "ProGCC 3.1"
 
 // URL that will display to open a config tool
 #define HOJA_WEBUSB_URL     "handheldlegend.github.io/hoja2"
@@ -41,14 +42,14 @@
 #define HOJA_IMU_CHAN_A_SPI_INSTANCE    0
 #define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b100100
 
-#define HOJA_IMU_CHAN_B_CS_PIN 25    // ok
+#define HOJA_IMU_CHAN_B_CS_PIN          25
 #define HOJA_IMU_CHAN_B_SPI_INSTANCE    0
 #define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b010010
 // ---------------------------------
 // ---------------------------------
 
-// Disable smoothing for 3.2
-#define ADC_SMOOTHING_STRENGTH      0
+// Enable smoothing for 3.1
+#define ADC_SMOOTHING_STRENGTH      4
 
 #define HOJA_ADC_LX_DRIVER          ADC_DRIVER_MCP3002
 #define HOJA_ADC_LX_CHANNEL         0
@@ -74,9 +75,11 @@
 
 // Haptic Driver Setup
 // No helper driver used
-#define HOJA_HD_HAPTICS_DRIVER HD_HAPTICS_DRIVER_HAL
-#define HOJA_HDRUMBLE_CHAN_A_PIN 21
-#define HOJA_HDRUMBLE_CHAN_B_PIN 24
+#define HOJA_HD_HAPTICS_DRIVER      HD_HAPTICS_DRIVER_HAL
+#define HOJA_HAPTIC_HELPER_DRIVER   HAPTIC_HELPER_DRIVER_DRV2605L // Helper driver
+#define HAPTIC_HELPER_DRIVER_DRV2605L_I2C_INSTANCE 0
+#define HOJA_HDRUMBLE_CHAN_A_PIN    21
+//#define HOJA_HDRUMBLE_CHAN_B_PIN 24 // UNUSED CH B
 // ---------------------------------
 // ---------------------------------
 
