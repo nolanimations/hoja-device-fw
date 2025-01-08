@@ -78,12 +78,23 @@ void cb_hoja_read_buttons(button_data_s *data)
 
     data->button_minus =!gpio_get(PGPIO_BUTTON_SELECT);
 
-    // Hold Start+Select to enter pairing
-    data->button_sync = data->button_plus && data->button_minus;
 
-    // Otherwise just select powers off
-    if(data->button_sync)
-        data->button_shipping = data->button_minus;
+    if(data->button_plus && data->button_minus)
+    {
+        data->button_sync   = true;
+        data->button_minus  = false;
+        data->button_shipping = false;
+    }
+    else if(data->button_minus)
+    {
+        data->button_sync   = false;
+        data->button_shipping = true;
+    }
+    else 
+    {
+        data->button_sync       = false;
+        data->button_shipping   = false;
+    }
 
     if(hoja_get_status().gamepad_mode != GAMEPAD_MODE_SNES)
     {
