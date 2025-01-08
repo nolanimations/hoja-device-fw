@@ -34,6 +34,7 @@ set(BULK_PROJECTS_DIRS
     boards/progcc_3p
     boards/progcc_3.1
     boards/progcc_3.2
+    boards/super_gamepad
 )
 
 # Iterate through the list
