@@ -12,11 +12,6 @@
 #define PGPIO_PUSH_C    11  // ok
 #define PGPIO_PUSH_D    12  // ok
 
-#if (HOJA_DEVICE_ID == 0xA002)
-  #define PGPIO_RUMBLE_MAIN   24
-  #define PGPIO_RUMBLE_BRAKE  25
-#endif
-
 #define PGPIO_BUTTON_USB_SEL 1    // ok
 #define PGPIO_BUTTON_USB_EN 27    // ok
 #define PGPIO_ESP_EN 14           // ok

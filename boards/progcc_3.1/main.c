@@ -116,11 +116,6 @@ void cb_hoja_read_buttons(button_data_s *data)
     data->button_safemode   = !gpio_get(PGPIO_BUTTON_MODE);
     data->button_shipping   = data->button_stick_right && data->button_stick_left;
     data->button_sync       = data->button_safemode;
-
-    if(data->button_stick_left)
-    {
-        reset_usb_boot(0, 0);
-    }
 }
 
 int main()

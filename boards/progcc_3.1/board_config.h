@@ -79,6 +79,10 @@
 #define HOJA_HAPTIC_HELPER_DRIVER   HAPTIC_HELPER_DRIVER_DRV2605L // Helper driver
 #define HAPTIC_HELPER_DRIVER_DRV2605L_I2C_INSTANCE 0
 #define HOJA_HDRUMBLE_CHAN_A_PIN    21
+
+#define BOARD_SAFE_PCM_MAX 255
+#define BOARD_LO_FREQUENCY_MIN 0.25f
+#define BOARD_HI_FREQUENCY_MIN 0.25f
 //#define HOJA_HDRUMBLE_CHAN_B_PIN 24 // UNUSED CH B
 // ---------------------------------
 // ---------------------------------
@@ -109,10 +113,10 @@
 // Device Information Setup 
 #define HOJA_DEVICE_NAME            HOJA_PRODUCT
 #define HOJA_DEVICE_MAKER           HOJA_MANUFACTURER
-#define HOJA_DEVICE_MANIFEST_URL   "https://raw.githubusercontent.com/HandHeldLegend/ProGCC-V3-Plus/master/FW/PROGCC3.1_RP2040_manifest.json"
-#define HOJA_DEVICE_FIRMWARE_URL   "https://raw.githubusercontent.com/HandHeldLegend/ProGCC-V3-Plus/master/FW/build/PROGCC3.2_RP2040.uf2"
-#define HOJA_DEVICE_MANUAL_URL     "https://wiki.handheldlegend.com"
-#define HOJA_DEVICE_FCC_ELABEL     "Test Label"
+#define HOJA_DEVICE_MANIFEST_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.1/manifest.json"
+#define HOJA_DEVICE_FIRMWARE_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.1/progcc_3.1.uf2"
+#define HOJA_DEVICE_MANUAL_URL      "https://docs.handheldlegend.com/s/portal/doc/user-guide-wQRaUfU6EM"
+#define HOJA_DEVICE_FCC_ELABEL      ""
 #define HOJA_DEVICE_SNES_SUPPORTED      1
 #define HOJA_DEVICE_JOYBUS_SUPPORTED    1
 // ---------------------------------

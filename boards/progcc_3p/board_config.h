@@ -11,7 +11,7 @@
 
 #define HOJA_FW_VERSION 0x0A30
 
-#define HOJA_PRODUCT        "ProGCC 3.2"
+#define HOJA_PRODUCT        "ProGCC 3+"
 
 // URL that will display to open a config tool
 #define HOJA_WEBUSB_URL     "handheldlegend.github.io/hoja2"
@@ -41,7 +41,7 @@
 #define HOJA_IMU_CHAN_A_SPI_INSTANCE    0
 #define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b100100
 
-#define HOJA_IMU_CHAN_B_CS_PIN 25    // ok
+#define HOJA_IMU_CHAN_B_CS_PIN          21    // ok
 #define HOJA_IMU_CHAN_B_SPI_INSTANCE    0
 #define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b010010
 // ---------------------------------
@@ -74,9 +74,9 @@
 
 // Haptic Driver Setup
 // No helper driver used
-#define HOJA_HD_HAPTICS_DRIVER HD_HAPTICS_DRIVER_HAL
-#define HOJA_HDRUMBLE_CHAN_A_PIN 21
-#define HOJA_HDRUMBLE_CHAN_B_PIN 24
+//#define HOJA_HD_HAPTICS_DRIVER HD_HAPTICS_DRIVER_HAL
+//#define HOJA_HDRUMBLE_CHAN_A_PIN 21
+//#define HOJA_HDRUMBLE_CHAN_B_PIN 24
 // ---------------------------------
 // ---------------------------------
 
@@ -106,9 +106,9 @@
 // Device Information Setup 
 #define HOJA_DEVICE_NAME            HOJA_PRODUCT
 #define HOJA_DEVICE_MAKER           HOJA_MANUFACTURER
-#define HOJA_DEVICE_MANIFEST_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.2/manifest.json"
-#define HOJA_DEVICE_FIRMWARE_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.2/progcc_3.2.uf2"
-#define HOJA_DEVICE_MANUAL_URL      "https://docs.handheldlegend.com/s/portal/doc/user-guide-wQRaUfU6EM"
+#define HOJA_DEVICE_MANIFEST_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3p/manifest.json"
+#define HOJA_DEVICE_FIRMWARE_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3p/progcc_3p.uf2"
+#define HOJA_DEVICE_MANUAL_URL      "https://docs.handheldlegend.com/s/portal/doc/user-guide-CGDu7Js71s"
 #define HOJA_DEVICE_FCC_ELABEL      ""
 #define HOJA_DEVICE_SNES_SUPPORTED      1
 #define HOJA_DEVICE_JOYBUS_SUPPORTED    1
@@ -163,21 +163,21 @@
     {"D-Pad"}, {"L Stick"}, {"R Stick"}, \
     {"L"}, {"R"}, {"ZL"}, {"ZR"}, \
     {"Home"}, {"Capture"}, \
-    {"Plus"}, {"Minus"}, {"Player"} \
+    {"Plus"}, {"Minus"}\
 }
-#define HOJA_RGB_PLAYER_GROUP_IDX   15
-#define HOJA_RGB_PLAYER_GROUP_SIZE  4
+#define HOJA_RGB_PLAYER_GROUP_IDX   11
+#define HOJA_RGB_PLAYER_GROUP_SIZE  1
 #define HOJA_RGB_PLAYER_TYPE        1 // Numerical player type. Type 2 is for color based player type
 // L   D   R   U
 // 12, 13, 14, 15
 // Corresponds to the group names in order
 // Filled out with any LED index corresponding to a group
 #define HOJA_RGB_GROUPINGS { \
-    {22}, {23}, {21}, {20}, \
-    {15,13,12,14}, {8,9,10,11}, {0,1,2,3}, \
-    {26}, {25}, {27}, {24}, \
-    {18}, {17}, \
-    {19}, {16}, {7,6,5,4} \
+    {18}, {19}, {17}, {16}, \
+    {11,9,8,10}, {4,5,6,7}, {0,1,2,3}, \
+    {20}, {22}, {21}, {23}, \
+    {14}, {13}, \
+    {15}, {12} \
 }
 
 // This will relate an input button

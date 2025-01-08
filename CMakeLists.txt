@@ -32,6 +32,7 @@ set(ROOT_DIR    ${CMAKE_CURRENT_LIST_DIR})
 set(BULK_PROJECTS_DIRS
     boards/progcc_3.1
     boards/progcc_3.2
+    boards/progcc_3p
 )
 
 # Iterate through the list
