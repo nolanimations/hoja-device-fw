@@ -1,6 +1,39 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(${PROJECT_NAME})
+if(NOT DEFINED PICO_SDK_INIT_DONE)
+    include($ENV{PICO_SDK_PATH}/pico_sdk_init.cmake)
+    set(CMAKE_C_STANDARD 11)
+    set(CMAKE_CXX_STANDARD 17)
+endif()
+
+if(NOT DEFINED PROJECT_NAME)
+    get_filename_component(PROJECT_NAME "${CMAKE_CURRENT_LIST_DIR}" NAME)
+endif()
+
+if(NOT DEFINED PICO_SDK_INIT_DONE)
+    project(${PROJECT_NAME} C CXX ASM)
+    pico_sdk_init()
+else()
+    project(${PROJECT_NAME})
+endif()
+
+if(NOT DEFINED HOJA_LIB_ADDED)
+    set(HOJA_LIB_DIR        ${CMAKE_CURRENT_LIST_DIR}/../../library/HOJA-LIB-RP2040)
+    set(HOJA_LIBOUTPUT_DIR  ${CMAKE_CURRENT_LIST_DIR}/../../library/artifacts)
+    add_subdirectory(${HOJA_LIB_DIR} ${HOJA_LIBOUTPUT_DIR})
+endif()
+
+if(NOT DEFINED SCRIPTS_DIR)
+    set(SCRIPTS_DIR ${CMAKE_CURRENT_LIST_DIR}/../../scripts)
+endif()
+
+if(NOT DEFINED HOJA_BUILD_DIR)
+    set(HOJA_BUILD_DIR   ${CMAKE_CURRENT_LIST_DIR}/build)
+endif()
+
+if(NOT DEFINED HOJA_BUILDS_PROJECT_DIR)
+    set(HOJA_BUILDS_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR}/../../builds/${PROJECT_NAME})
+endif()
 
 # Rest of your existing CMake file remains the same
 add_executable(${PROJECT_NAME}
@@ -9,6 +42,7 @@ add_executable(${PROJECT_NAME}
 
 # Use the passed-in build directory
 set_target_properties(${PROJECT_NAME} PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${HOJA_BUILD_DIR}
     RUNTIME_OUTPUT_DIRECTORY ${HOJA_BUILD_DIR}
     ARCHIVE_OUTPUT_DIRECTORY ${HOJA_BUILD_DIR}
     LIBRARY_OUTPUT_DIRECTORY ${HOJA_BUILD_DIR}
