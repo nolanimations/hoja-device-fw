@@ -74,9 +74,13 @@
 
 // Haptic Driver Setup
 // No helper driver used
-//#define HOJA_HD_HAPTICS_DRIVER HD_HAPTICS_DRIVER_HAL
-//#define HOJA_HDRUMBLE_CHAN_A_PIN 21
+#define HOJA_HD_HAPTICS_DRIVER      HD_HAPTICS_DRIVER_HAL
+#define HOJA_HDRUMBLE_CHAN_A_PIN    24
 //#define HOJA_HDRUMBLE_CHAN_B_PIN 24
+
+#define BOARD_SAFE_PCM_MAX      100
+#define BOARD_LO_FREQUENCY_MIN  0.9f
+#define BOARD_HI_FREQUENCY_MIN  0.95f
 // ---------------------------------
 // ---------------------------------
 

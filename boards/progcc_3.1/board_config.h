@@ -80,9 +80,9 @@
 #define HAPTIC_HELPER_DRIVER_DRV2605L_I2C_INSTANCE 0
 #define HOJA_HDRUMBLE_CHAN_A_PIN    21
 
-#define BOARD_SAFE_PCM_MAX 255
-#define BOARD_LO_FREQUENCY_MIN 0.25f
-#define BOARD_HI_FREQUENCY_MIN 0.25f
+#define BOARD_SAFE_PCM_MAX 245
+#define BOARD_LO_FREQUENCY_MIN 0.2f
+#define BOARD_HI_FREQUENCY_MIN 0.2f
 //#define HOJA_HDRUMBLE_CHAN_B_PIN 24 // UNUSED CH B
 // ---------------------------------
 // ---------------------------------
