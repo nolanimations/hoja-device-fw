@@ -40,6 +40,10 @@ set(BULK_PROJECTS_DIRS
 foreach(DIR ${BULK_PROJECTS_DIRS})
     get_filename_component(PROJECT_NAME "${DIR}" NAME)
 
+    # Copy CMakeLists
+    file(COPY "${SCRIPTS_DIR}/CMakeLists.txt"
+     DESTINATION "${ROOT_DIR}/boards/${PROJECT_NAME}")
+
     # Set the build folder for this project
     set(HOJA_BUILD_DIR ${ROOT_DIR}/boards/${PROJECT_NAME}/build)
     # Create builds directory for this project

@@ -1,3 +1,5 @@
+# THIS IS MEAN TO BE COPIED. DO NOT EDIT UNLES YOU ARE IN THE SCRIPTS FOLDER
+
 cmake_minimum_required(VERSION 3.13)
 
 if(NOT DEFINED PICO_SDK_INIT_DONE)
@@ -35,10 +37,28 @@ if(NOT DEFINED HOJA_BUILDS_PROJECT_DIR)
     set(HOJA_BUILDS_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR}/../../builds/${PROJECT_NAME})
 endif()
 
+# Add custom command to generate timestamp header
+add_custom_command(
+    OUTPUT ${CMAKE_CURRENT_LIST_DIR}/timestamp.h
+    COMMAND ${CMAKE_COMMAND} 
+    -DOUTPUTDIR=${CMAKE_CURRENT_LIST_DIR}
+    -P ${SCRIPTS_DIR}/timestamp.cmake
+    COMMENT "Generating build timestamp"
+    VERBATIM
+)
+
+# Create a custom target that depends on the timestamp
+add_custom_target(${PROJECT_NAME}_TIMESTAMP ALL
+    DEPENDS ${CMAKE_CURRENT_LIST_DIR}/timestamp.h
+)
+
 # Rest of your existing CMake file remains the same
 add_executable(${PROJECT_NAME}
     main.c
 )
+
+# Make your targets depend on the timestamp
+add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_TIMESTAMP)
 
 # Use the passed-in build directory
 set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -61,15 +81,19 @@ pico_enable_stdio_usb(${PROJECT_NAME} 0)
 pico_enable_stdio_uart(${PROJECT_NAME} 0)
 pico_add_extra_outputs(${PROJECT_NAME})
 
+message(STATUS "${PROJECT_NAME} build version: 0x${HOJA_BUILD_VERSION_TIMESTAMP}")
+
 add_custom_command(TARGET ${PROJECT_NAME}
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} 
+    -DSOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}
     -DUF2_SOURCE=${HOJA_BUILD_DIR}/${PROJECT_NAME}.uf2
     -DBIN_SOURCE=${HOJA_BUILD_DIR}/${PROJECT_NAME}.bin
 
     -DUF2_TARGET=${HOJA_BUILDS_PROJECT_DIR}
     -DBIN_TARGET=${HOJA_BUILDS_PROJECT_DIR}
     -DMANIFEST_TARGET=${HOJA_BUILDS_PROJECT_DIR}
+
     -P ${SCRIPTS_DIR}/manifest.cmake
     COMMENT "Moving build files and generating manifest.json"
     WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}

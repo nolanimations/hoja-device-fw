@@ -42,6 +42,10 @@ else()
     endif()
 endif()
 
+if(NOT DEFINED SOURCE_DIR)
+    message(FATAL_ERROR "SOURCE_DIR not provided. Please specify -DSOURCE_DIR=/path/to/source")
+endif()
+
 # Define required parameters with validation
 if(NOT DEFINED UF2_SOURCE)
     message(FATAL_ERROR "UF2_SOURCE not provided. Please specify -DUF2_SOURCE=/path/to/source.uf2")
@@ -90,21 +94,6 @@ set(MANIFEST_JSON "${MANIFEST_TARGET}/manifest.json")
 file(COPY ${UF2_SOURCE} DESTINATION ${UF2_TARGET})
 file(COPY ${BIN_SOURCE} DESTINATION ${BIN_TARGET})
 
-# Generate timestamp-based version (YYYY,DD,HH,MM in hex)
-string(TIMESTAMP YEAR "%Y")
-string(TIMESTAMP DAY "%j")  # Day of the year (001-366)
-string(TIMESTAMP HOUR "%H")
-string(TIMESTAMP MINUTE "%M")
-
-# Convert to integers and then to hex
-math(EXPR YEAR_INT "${YEAR}")
-math(EXPR DAY_INT "${DAY}")
-math(EXPR HOUR_INT "${HOUR}")
-math(EXPR MINUTE_INT "${MINUTE}")
-
-# Combine into single hex value: YYYYDDHHMMH
-math(EXPR VERSION_HEX "(${YEAR_INT} << 24) | (${DAY_INT} << 16) | (${HOUR_INT} << 8) | ${MINUTE_INT}")
-
 # Calculate SHA256 checksum of the BIN file
 file(SHA256 ${BIN_TARGET_FILE} BIN_CHECKSUM)
 
@@ -115,8 +104,13 @@ set(MANIFEST_CONTENT [=[{
   "checksum": "%CHECKSUM%"
 }]=])
 
-# Replace placeholders
-string(REPLACE "%VERSION%" "${VERSION_HEX}" MANIFEST_CONTENT "${MANIFEST_CONTENT}")
+# Read timestamp from timestamp.h
+file(READ "${SOURCE_DIR}/timestamp.h" TIMESTAMP_CONTENT)
+string(REGEX MATCH "BUILD_TIMESTAMP \\(\\(uint32_t\\)([0-9]+)\\)" _ ${TIMESTAMP_CONTENT})
+set(TIMESTAMP "${CMAKE_MATCH_1}")
+
+# Replace VERSION and CHECKSUM in manifest
+string(REPLACE "%VERSION%" "${TIMESTAMP}" MANIFEST_CONTENT "${MANIFEST_CONTENT}")
 string(REPLACE "%CHECKSUM%" "${BIN_CHECKSUM}" MANIFEST_CONTENT "${MANIFEST_CONTENT}")
 
 # Write manifest.json
@@ -127,5 +121,5 @@ message(STATUS "Files processed successfully:")
 message(STATUS "UF2 copied to: ${UF2_TARGET_FILE}")
 message(STATUS "BIN copied to: ${BIN_TARGET_FILE}")
 message(STATUS "Manifest created at: ${MANIFEST_JSON}")
-message(STATUS "Generated version (hex): ${VERSION_HEX}")
+message(STATUS "Generated version (hex): ${TIMESTAMP_HEX}")
 message(STATUS "BIN checksum: ${BIN_CHECKSUM}")
