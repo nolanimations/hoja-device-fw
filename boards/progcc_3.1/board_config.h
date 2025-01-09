@@ -180,11 +180,22 @@
 // Corresponds to the group names in order
 // Filled out with any LED index corresponding to a group
 #define HOJA_RGB_GROUPINGS { \
-    {22}, {23}, {21}, {20}, \
-    {15,13,12,14}, {8,9,10,11}, {0,1,2,3}, \
-    {26}, {25}, {27}, {24}, \
-    {18}, {17}, \
-    {19}, {16}, {7,6,5,4} \
+    RGB_GROUP(22), \
+    RGB_GROUP(23), \
+    RGB_GROUP(21), \
+    RGB_GROUP(20), \
+    RGB_GROUP(15, 13, 12, 14), \
+    RGB_GROUP(8, 9, 10, 11), \
+    RGB_GROUP(0, 1, 2, 3), \
+    RGB_GROUP(26), \
+    RGB_GROUP(25), \
+    RGB_GROUP(27), \
+    RGB_GROUP(24), \
+    RGB_GROUP(18), \
+    RGB_GROUP(17), \
+    RGB_GROUP(19), \
+    RGB_GROUP(16), \
+    RGB_GROUP(7, 6, 5, 4)  \
 }
 
 // This will relate an input button

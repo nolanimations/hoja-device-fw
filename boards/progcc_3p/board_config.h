@@ -172,16 +172,25 @@
 #define HOJA_RGB_PLAYER_GROUP_IDX   11
 #define HOJA_RGB_PLAYER_GROUP_SIZE  1
 #define HOJA_RGB_PLAYER_TYPE        1 // Numerical player type. Type 2 is for color based player type
+
 // L   D   R   U
 // 12, 13, 14, 15
-// Corresponds to the group names in order
-// Filled out with any LED index corresponding to a group
 #define HOJA_RGB_GROUPINGS { \
-    {18}, {19}, {17}, {16}, \
-    {11,9,8,10}, {4,5,6,7}, {0,1,2,3}, \
-    {20}, {22}, {21}, {23}, \
-    {14}, {13}, \
-    {15}, {12} \
+    RGB_GROUP(18), \
+    RGB_GROUP(19), \
+    RGB_GROUP(17), \
+    RGB_GROUP(16), \
+    RGB_GROUP(11, 9, 8, 10), \
+    RGB_GROUP(4, 5, 6, 7), \
+    RGB_GROUP(0, 1, 2, 3), \
+    RGB_GROUP(20), \
+    RGB_GROUP(22), \
+    RGB_GROUP(21), \
+    RGB_GROUP(23), \
+    RGB_GROUP(14), \
+    RGB_GROUP(13), \
+    RGB_GROUP(15), \
+    RGB_GROUP(12)  \
 }
 
 // This will relate an input button

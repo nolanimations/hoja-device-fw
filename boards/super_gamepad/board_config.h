@@ -168,14 +168,14 @@
 #define HOJA_RGB_PLAYER_GROUP_IDX   6
 #define HOJA_RGB_PLAYER_GROUP_SIZE  1
 
-// L   D   R   U
-// 12, 13, 14, 15
+// U D L R is the order
+// 0,  2,  3,  1
 // Corresponds to the group names in order
 // Filled out with any LED index corresponding to a group
 #define HOJA_RGB_GROUPINGS { \
-    {9}, {7}, {8}, {6}, \
-    {0,1,2,3},\
-    {5}, {4} \
+    RGB_GROUP(9), RGB_GROUP(7), RGB_GROUP(8), RGB_GROUP(6), \
+    RGB_GROUP(1,2,0,3),\
+    RGB_GROUP(5), RGB_GROUP(4) \
 }
 
 // This will relate an input button
