@@ -1,49 +1,49 @@
 #ifndef BOARD_CONFIG_H
 #define BOARD_CONFIG_H
 
-#include "driver_define_helper.h"
-#include "rgb_define_helper.h"
+#include "driver_define_helper.h" 
+#include "rgb_define_helper.h" 
 
-#define HOJA_BT_LOGGING_DEBUG 0
+#define HOJA_BT_LOGGING_DEBUG 0 
 
 // Device stuff
 //#define HOJA_DEVICE_ID  0xC003 (GC Ultimate R4K)
 
-#define HOJA_FW_VERSION 0x0A30
+#define HOJA_FW_VERSION 0x0A30 
 
-#define HOJA_PRODUCT        "GCU-Proto"
+#define HOJA_PRODUCT        "GCU-Proto" 
 
 // URL that will display to open a config tool
-#define HOJA_WEBUSB_URL     "handheldlegend.github.io/hoja2"
-#define HOJA_MANUFACTURER   "HHL"
+#define HOJA_WEBUSB_URL     "handheldlegend.github.io/hoja2" 
+#define HOJA_MANUFACTURER   "HHL" 
 
 // ---------------------------------
 // ---------------------------------
 
 // SPI HAL Setup
-#define HOJA_SPI_0_ENABLE     1
-#define HOJA_SPI_0_GPIO_CLK   6
-#define HOJA_SPI_0_GPIO_MOSI  7
-#define HOJA_SPI_0_GPIO_MISO  4
-#define SPI_INSTANCE_0        0
+#define HOJA_SPI_0_ENABLE     1 
+#define HOJA_SPI_0_GPIO_CLK   6 
+#define HOJA_SPI_0_GPIO_MOSI  7 
+#define HOJA_SPI_0_GPIO_MISO  4 
+#define SPI_INSTANCE_0        0 
 
 // I2C HAL Setup
-#define HOJA_I2C_1_ENABLE       1
-#define HOJA_I2C_1_GPIO_SDA     22
-#define HOJA_I2C_1_GPIO_SCL     23
-#define I2C_INSTANCE_1          1
+#define HOJA_I2C_1_ENABLE       1 
+#define HOJA_I2C_1_GPIO_SDA     22 
+#define HOJA_I2C_1_GPIO_SCL     23 
+#define I2C_INSTANCE_1          1 
 
 // IMU Driver Setup
-#define HOJA_IMU_CHAN_A_DRIVER          IMU_DRIVER_LSM6DSR
-#define HOJA_IMU_CHAN_B_DRIVER          IMU_DRIVER_LSM6DSR
+#define HOJA_IMU_CHAN_A_DRIVER          IMU_DRIVER_LSM6DSR 
+#define HOJA_IMU_CHAN_B_DRIVER          IMU_DRIVER_LSM6DSR 
 
-#define HOJA_IMU_CHAN_A_CS_PIN          0
-#define HOJA_IMU_CHAN_A_SPI_INSTANCE    0
-#define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b100100
+#define HOJA_IMU_CHAN_A_CS_PIN          0 
+#define HOJA_IMU_CHAN_A_SPI_INSTANCE    0 
+#define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b100100 
 
 #define HOJA_IMU_CHAN_B_CS_PIN          2 
-#define HOJA_IMU_CHAN_B_SPI_INSTANCE    0
-#define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b010010
+#define HOJA_IMU_CHAN_B_SPI_INSTANCE    0 
+#define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b010010 
 // ---------------------------------
 // ---------------------------------
 
@@ -69,6 +69,17 @@
 #define HOJA_ADC_RY_CHANNEL         1
 #define HOJA_ADC_RY_SPI_INSTANCE    0
 #define HOJA_ADC_RY_CS_PIN          9 
+
+#define HOJA_ADC_LT_DRIVER          ADC_DRIVER_HAL
+#define HOJA_ADC_LT_PIN             29
+#define HOJA_ADC_LT_CHANNEL         3
+#define HOJA_ADC_LT_INVERT          1
+
+#define HOJA_ADC_RT_DRIVER          ADC_DRIVER_HAL
+#define HOJA_ADC_RT_PIN             28
+#define HOJA_ADC_RT_CHANNEL         2
+#define HOJA_ADC_RT_INVERT          1
+
 // ---------------------------------
 // ---------------------------------
 
