@@ -77,11 +77,18 @@ target_link_libraries(${PROJECT_NAME}
     hoja_lib
 )
 
+target_compile_definitions(${PROJECT_NAME}
+	PRIVATE
+	PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
+	)
+
 pico_enable_stdio_usb(${PROJECT_NAME} 0)
 pico_enable_stdio_uart(${PROJECT_NAME} 0)
 pico_add_extra_outputs(${PROJECT_NAME})
 
 message(STATUS "${PROJECT_NAME} build version: 0x${HOJA_BUILD_VERSION_TIMESTAMP}")
+
+set(CMAKE_EXE_LINKER_FLAGS "-Wl,--print-memory-usage")
 
 add_custom_command(TARGET ${PROJECT_NAME}
     POST_BUILD

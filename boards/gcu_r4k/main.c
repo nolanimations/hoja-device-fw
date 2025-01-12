@@ -33,8 +33,8 @@ void _local_setup_scan(uint32_t gpio)
 bool cb_hoja_buttons_init()
 {
     stdio_init_all();
+    
     _local_setup_btn(PGPIO_BUTTON_MODE);
-
     // Set up GPIO for input buttons
     _local_setup_scan(PGPIO_SCAN_A);
     _local_setup_scan(PGPIO_SCAN_B);
@@ -95,7 +95,8 @@ void cb_hoja_read_buttons(button_data_s *data)
     gpio_put(PGPIO_SCAN_F, true);
 
     data->button_shipping = !gpio_get(PGPIO_BUTTON_MODE);
-    data->button_sync = data->button_plus;
+
+    //data->button_sync = data->button_plus;
 }
 
 int main()

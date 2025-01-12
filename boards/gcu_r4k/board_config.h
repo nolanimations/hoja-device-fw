@@ -39,11 +39,11 @@
 
 #define HOJA_IMU_CHAN_A_CS_PIN          0 
 #define HOJA_IMU_CHAN_A_SPI_INSTANCE    0 
-#define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b100100 
+#define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b000010 
 
 #define HOJA_IMU_CHAN_B_CS_PIN          2 
 #define HOJA_IMU_CHAN_B_SPI_INSTANCE    0 
-#define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b010010 
+#define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b000010 
 // ---------------------------------
 // ---------------------------------
 
@@ -164,7 +164,7 @@
 // RGB Setup
 #define HOJA_RGB_DRIVER         RGB_DRIVER_HAL
 #define RGB_DRIVER_OUTPUT_PIN   27
-#define RGB_DRIVER_LED_COUNT    32
+#define RGB_DRIVER_LED_COUNT    12
 #define RGB_DRIVER_ORDER        RGB_ORDER_GRB
 #define RGB_DRIVER_PIO_INSTANCE 0
 #define RGB_DRIVER_REFRESHRATE  120 // HZ
