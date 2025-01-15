@@ -6,11 +6,6 @@
 
 #define HOJA_BT_LOGGING_DEBUG 0
 
-// Device stuff
-//#define HOJA_DEVICE_ID  0xA001 (OG PROGCC 3)
-
-#define HOJA_FW_VERSION 0x0A30
-
 #define HOJA_PRODUCT        "ProGCC 3"
 
 // URL that will display to open a config tool
