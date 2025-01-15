@@ -37,16 +37,6 @@ if(NOT DEFINED HOJA_BUILDS_PROJECT_DIR)
     set(HOJA_BUILDS_PROJECT_DIR ${CMAKE_CURRENT_LIST_DIR}/../../builds/${PROJECT_NAME})
 endif()
 
-# Add custom command to generate timestamp header
-#add_custom_command(
-#    OUTPUT ${CMAKE_CURRENT_LIST_DIR}/timestamp.h
-#    COMMAND ${CMAKE_COMMAND} 
-#    -DOUTPUTDIR=${CMAKE_CURRENT_LIST_DIR}
-#    -P ${SCRIPTS_DIR}/timestamp.cmake
-#    COMMENT "Generating build timestamp"
-#    VERBATIM
-#)
-
 add_custom_target(
     ${PROJECT_NAME}_TIMESTAMP_GEN ALL
     COMMAND ${CMAKE_COMMAND} 
