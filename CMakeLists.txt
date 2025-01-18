@@ -37,6 +37,7 @@ set(BULK_PROJECTS_DIRS
     boards/super_gamepad 
     boards/gcu_proto 
     boards/gcu_r4k 
+    boards/gcu_s1 
 )
 
 # Iterate through the list

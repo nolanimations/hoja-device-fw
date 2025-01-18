@@ -51,25 +51,14 @@
 // Enable smoothing for 3.1
 #define ADC_SMOOTHING_STRENGTH      4
 
-#define HOJA_ADC_LX_DRIVER          ADC_DRIVER_MCP3002
-#define HOJA_ADC_LX_CHANNEL         0
-#define HOJA_ADC_LX_SPI_INSTANCE    0
-#define HOJA_ADC_LX_CS_PIN          16 
+// MCP3002 (2 of them)
+extern adc_driver_cfg_s user_adc_1;
+extern adc_driver_cfg_s user_adc_2;
 
-#define HOJA_ADC_LY_DRIVER          ADC_DRIVER_MCP3002
-#define HOJA_ADC_LY_CHANNEL         1
-#define HOJA_ADC_LY_SPI_INSTANCE    0
-#define HOJA_ADC_LY_CS_PIN          16 
-
-#define HOJA_ADC_RX_DRIVER          ADC_DRIVER_MCP3002
-#define HOJA_ADC_RX_CHANNEL         0
-#define HOJA_ADC_RX_SPI_INSTANCE    0
-#define HOJA_ADC_RX_CS_PIN          22 
-
-#define HOJA_ADC_RY_DRIVER          ADC_DRIVER_MCP3002
-#define HOJA_ADC_RY_CHANNEL         1
-#define HOJA_ADC_RY_SPI_INSTANCE    0
-#define HOJA_ADC_RY_CS_PIN          22 
+#define HOJA_ADC_LX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &user_adc_1} 
+#define HOJA_ADC_LY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &user_adc_1} 
+#define HOJA_ADC_RX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &user_adc_2} 
+#define HOJA_ADC_RY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &user_adc_2} 
 // ---------------------------------
 // ---------------------------------
 

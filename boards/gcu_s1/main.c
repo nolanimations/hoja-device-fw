@@ -6,21 +6,20 @@
 #include "pico/stdlib.h" 
 #include "pico/bootrom.h" 
 
-adc_driver_cfg_s gcuk_adc_1 = {
-    .driver_type = ADC_DRIVER_MCP3002,
-    .driver_instance  = 0,
-    .mcp3002_cfg = {.cs_gpio = 1, .spi_instance = 0}
-    };
-
-adc_driver_cfg_s gcuk_adc_2 = {
-    .driver_type = ADC_DRIVER_MCP3002,
-    .driver_instance  = 1,
-    .mcp3002_cfg = {.cs_gpio = 9, .spi_instance = 0}
-    };
-
 adc_driver_cfg_s user_adc_hal = {
     .driver_type = ADC_DRIVER_HAL,
     .driver_instance  = 0,
+    };
+
+adc_driver_cfg_s user_adc_mux = {
+    .driver_type = ADC_DRIVER_TMUX1204,
+    .driver_instance  = 0,
+    .tmux1204_cfg = {
+        .a0_gpio    = 23,
+        .a1_gpio    = 24,
+        .host_cfg   = &user_adc_hal,
+        .host_ch_local = 0
+        }
     };
 
 void _local_setup_btn(uint32_t gpio)

@@ -6,12 +6,7 @@
 
 #define HOJA_BT_LOGGING_DEBUG 0 
 
-// Device stuff
-//#define HOJA_DEVICE_ID  0xC003 (GC Ultimate R4K)
-
-#define HOJA_FW_VERSION 0x0A30 
-
-#define HOJA_PRODUCT        "GCU-R4K" 
+#define HOJA_PRODUCT        "GCU-S1" 
 
 // URL that will display to open a config tool
 #define HOJA_WEBUSB_URL     "handheldlegend.github.io/hoja2" 
@@ -28,10 +23,10 @@
 #define SPI_INSTANCE_0        0 
 
 // I2C HAL Setup
-#define HOJA_I2C_1_ENABLE       1 
-#define HOJA_I2C_1_GPIO_SDA     22 
-#define HOJA_I2C_1_GPIO_SCL     23 
-#define I2C_INSTANCE_1          1 
+//#define HOJA_I2C_1_ENABLE       1 
+//#define HOJA_I2C_1_GPIO_SDA     22 
+//#define HOJA_I2C_1_GPIO_SCL     23 
+//#define I2C_INSTANCE_1          1 
 
 // IMU Driver Setup
 #define HOJA_IMU_CHAN_A_DRIVER          IMU_DRIVER_LSM6DSR 
@@ -50,18 +45,17 @@
 // Disable smoothing
 #define ADC_SMOOTHING_STRENGTH      0
 
-// MCP3002 (2 of them)
-extern adc_driver_cfg_s gcuk_adc_1;
-extern adc_driver_cfg_s gcuk_adc_2;
+// TMUX1204 
+extern adc_driver_cfg_s user_adc_mux; 
 
-// HAL ADC (1 instance)
-extern adc_driver_cfg_s user_adc_hal;
+// HAL ADC (1 instance) 
+extern adc_driver_cfg_s user_adc_hal; 
 
-#define HOJA_ADC_LX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &gcuk_adc_1} 
-#define HOJA_ADC_LY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &gcuk_adc_1} 
+#define HOJA_ADC_LX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &user_adc_mux} 
+#define HOJA_ADC_LY_CFG (adc_channel_cfg_s) {.ch_local = 2, .driver_cfg = &user_adc_mux} 
 
-#define HOJA_ADC_RX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &gcuk_adc_2} 
-#define HOJA_ADC_RY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &gcuk_adc_2} 
+#define HOJA_ADC_RX_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &user_adc_mux} 
+#define HOJA_ADC_RY_CFG (adc_channel_cfg_s) {.ch_local = 3, .driver_cfg = &user_adc_mux} 
 
 #define HOJA_ADC_LT_CFG (adc_channel_cfg_s) {.ch_local = 3, .driver_cfg = &user_adc_hal, .ch_invert = 1} 
 #define HOJA_ADC_RT_CFG (adc_channel_cfg_s) {.ch_local = 2, .driver_cfg = &user_adc_hal, .ch_invert = 1} 
@@ -79,33 +73,33 @@ extern adc_driver_cfg_s user_adc_hal;
 // ---------------------------------
 
 // Bluetooth Driver Setup
-#define HOJA_BLUETOOTH_DRIVER           BLUETOOTH_DRIVER_ESP32HOJA
-#define BLUETOOTH_DRIVER_I2C_INSTANCE   1
-#define BLUETOOTH_DRIVER_ENABLE_PIN     26
+// #define HOJA_BLUETOOTH_DRIVER           BLUETOOTH_DRIVER_ESP32HOJA
+// #define BLUETOOTH_DRIVER_I2C_INSTANCE   1
+// #define BLUETOOTH_DRIVER_ENABLE_PIN     26
 // ---------------------------------
 // ---------------------------------
 
 // USB Mux Driver Setup
-#define HOJA_USB_MUX_DRIVER         USB_MUX_DRIVER_PI3USB4000A
-#define USB_MUX_DRIVER_ENABLE_PIN   24
-#define USB_MUX_DRIVER_SELECT_PIN   25
+// #define HOJA_USB_MUX_DRIVER         USB_MUX_DRIVER_PI3USB4000A
+// #define USB_MUX_DRIVER_ENABLE_PIN   24
+// #define USB_MUX_DRIVER_SELECT_PIN   25
 // ---------------------------------
 // ---------------------------------
 
 // Battery Driver Setup
-#define HOJA_BATTERY_DRIVER         BATTERY_DRIVER_BQ25180
-#define HOJA_BATTERY_I2C_INSTANCE   1
-#define HOJA_BATTERY_CAPACITY_MAH   1200
-#define HOJA_BATTERY_PART_CODE      "BDT 903035"
-#define HOJA_BATTERY_CONSUME_RATE   225 // mA
+// #define HOJA_BATTERY_DRIVER         BATTERY_DRIVER_BQ25180
+// #define HOJA_BATTERY_I2C_INSTANCE   1
+// #define HOJA_BATTERY_CAPACITY_MAH   1200
+// #define HOJA_BATTERY_PART_CODE      "BDT 903035"
+// #define HOJA_BATTERY_CONSUME_RATE   225 // mA
 // ---------------------------------
 // ---------------------------------
 
 // Device Information Setup 
 #define HOJA_DEVICE_NAME            HOJA_PRODUCT
 #define HOJA_DEVICE_MAKER           HOJA_MANUFACTURER
-#define HOJA_DEVICE_MANIFEST_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/gcu_r4k/manifest.json"
-#define HOJA_DEVICE_FIRMWARE_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/gcu_r4k/gcu_proto.uf2"
+#define HOJA_DEVICE_MANIFEST_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/gcu_s1/manifest.json"
+#define HOJA_DEVICE_FIRMWARE_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/gcu_s1/gcu_s1.uf2"
 #define HOJA_DEVICE_MANUAL_URL      "https://docs.handheldlegend.com/s/portal/doc/user-guide-UoDtIku68z"
 #define HOJA_DEVICE_FCC_ELABEL      ""
 #define HOJA_DEVICE_SNES_SUPPORTED      1
