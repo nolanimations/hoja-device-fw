@@ -64,14 +64,16 @@ extern adc_driver_cfg_s user_adc_2;
 
 // Haptic Driver Setup
 // No helper driver used
-#define HOJA_HD_HAPTICS_DRIVER      HD_HAPTICS_DRIVER_HAL
+#define HOJA_HAPTICS_DRIVER         HAPTICS_DRIVER_HAL
 #define HOJA_HAPTIC_HELPER_DRIVER   HAPTIC_HELPER_DRIVER_DRV2605L // Helper driver
 #define HAPTIC_HELPER_DRIVER_DRV2605L_I2C_INSTANCE 0
-#define HOJA_HDRUMBLE_CHAN_A_PIN    21
+#define HOJA_HAPTICS_CHAN_A_PIN     21
 
-#define BOARD_SAFE_PCM_MAX      164
-#define BOARD_LO_FREQUENCY_MIN  0.2f
-#define BOARD_HI_FREQUENCY_MIN  0.2f
+#define HOJA_HAPTICS_MAX        0.3f // -30
+
+#define HOJA_HAPTICS_MIN_LO     0.0625f // -2
+#define HOJA_HAPTICS_MIN_HI     0.000f
+
 //#define HOJA_HDRUMBLE_CHAN_B_PIN 24 // UNUSED CH B
 // ---------------------------------
 // ---------------------------------

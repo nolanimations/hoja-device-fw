@@ -39,11 +39,11 @@
 
 #define HOJA_IMU_CHAN_A_CS_PIN          0 
 #define HOJA_IMU_CHAN_A_SPI_INSTANCE    0 
-#define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b000010 
+#define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b010010 
 
 #define HOJA_IMU_CHAN_B_CS_PIN          2 
 #define HOJA_IMU_CHAN_B_SPI_INSTANCE    0 
-#define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b000010 
+#define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b010010 
 // ---------------------------------
 // ---------------------------------
 
@@ -71,10 +71,16 @@ extern adc_driver_cfg_s user_adc_hal;
 
 // Haptic Driver Setup
 // No helper driver used
-#define HOJA_HD_HAPTICS_DRIVER      HD_HAPTICS_DRIVER_HAL
-#define HOJA_HDRUMBLE_CHAN_A_PIN    8
-#define HOJA_HDRUMBLE_CHAN_B_PIN    3
-#define BOARD_SAFE_PCM_MAX          60
+#define HOJA_HAPTICS_DRIVER         HAPTICS_DRIVER_HAL
+#define HOJA_HAPTICS_CHAN_A_PIN     8
+#define HOJA_HAPTICS_CHAN_B_PIN     3
+
+#define HOJA_HAPTICS_MAX        0.3f // 
+
+#define HOJA_HAPTICS_MIN_LO     0.0625f // 
+#define HOJA_HAPTICS_MIN_HI     0.0625f // 
+
+#define HOJA_HAPTICS_DEBUG 0
 // ---------------------------------
 // ---------------------------------
 

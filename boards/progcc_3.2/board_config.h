@@ -37,11 +37,11 @@
 #define HOJA_IMU_CHAN_A_DRIVER          IMU_DRIVER_LSM6DSR
 #define HOJA_IMU_CHAN_B_DRIVER          IMU_DRIVER_LSM6DSR
 
-#define HOJA_IMU_CHAN_A_CS_PIN          17
+#define HOJA_IMU_CHAN_A_CS_PIN          17 
 #define HOJA_IMU_CHAN_A_SPI_INSTANCE    0
 #define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b100100
 
-#define HOJA_IMU_CHAN_B_CS_PIN 25    // ok
+#define HOJA_IMU_CHAN_B_CS_PIN          25 
 #define HOJA_IMU_CHAN_B_SPI_INSTANCE    0
 #define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b010010
 // ---------------------------------
@@ -63,9 +63,17 @@ extern adc_driver_cfg_s user_adc_2;
 
 // Haptic Driver Setup
 // No helper driver used
-#define HOJA_HD_HAPTICS_DRIVER HD_HAPTICS_DRIVER_HAL
-#define HOJA_HDRUMBLE_CHAN_A_PIN 21
-#define HOJA_HDRUMBLE_CHAN_B_PIN 24
+#define HOJA_HAPTICS_DRIVER        HAPTICS_DRIVER_HAL
+#define HOJA_HAPTICS_CHAN_A_PIN    21
+#define HOJA_HAPTICS_CHAN_B_PIN    24
+
+#define HOJA_HAPTICS_MAX        0.3f // -30
+
+#define HOJA_HAPTICS_MIN_LO     0.0625f // -2
+#define HOJA_HAPTICS_MIN_HI     0.000f
+
+#define HOJA_HAPTICS_DEBUG 0
+
 // ---------------------------------
 // ---------------------------------
 

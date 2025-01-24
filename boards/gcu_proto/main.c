@@ -30,19 +30,19 @@ button_remap_s user_map = {
 };
 */ 
 
-adc_driver_cfg_s board_adc_1 = {
+adc_driver_cfg_s gcp_adc_1 = {
     .driver_type = ADC_DRIVER_MCP3002,
     .driver_instance  = 0,
     .mcp3002_cfg = {.cs_gpio = 1, .spi_instance = 0}
     };
 
-adc_driver_cfg_s board_adc_2 = {
+adc_driver_cfg_s gcp_adc_2 = {
     .driver_type = ADC_DRIVER_MCP3002,
     .driver_instance  = 1,
     .mcp3002_cfg = {.cs_gpio = 9, .spi_instance = 0}
     };
 
-adc_driver_cfg_s board_adc_hal = {
+adc_driver_cfg_s gcp_adc_hal = {
     .driver_type = ADC_DRIVER_HAL,
     .driver_instance  = 0,
     };

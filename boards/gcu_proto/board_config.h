@@ -39,11 +39,11 @@
 
 #define HOJA_IMU_CHAN_A_CS_PIN          0
 #define HOJA_IMU_CHAN_A_SPI_INSTANCE    0
-#define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b100100
+#define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b000010
 
 #define HOJA_IMU_CHAN_B_CS_PIN          2 
 #define HOJA_IMU_CHAN_B_SPI_INSTANCE    0
-#define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b010010
+#define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b000010
 // ---------------------------------
 // ---------------------------------
 
@@ -51,33 +51,33 @@
 #define ADC_SMOOTHING_STRENGTH      0
 
 // MCP3002 (2 of them)
-extern adc_driver_cfg_s board_adc_1;
-extern adc_driver_cfg_s board_adc_2;
+extern adc_driver_cfg_s gcp_adc_1;
+extern adc_driver_cfg_s gcp_adc_2;
 
 // HAL ADC (1 instance)
-extern adc_driver_cfg_s board_adc_hal;
+extern adc_driver_cfg_s gcp_adc_hal;
 
-#define HOJA_ADC_LX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &board_adc_1} 
-#define HOJA_ADC_LY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &board_adc_1} 
+#define HOJA_ADC_LX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &gcp_adc_1} 
+#define HOJA_ADC_LY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &gcp_adc_1} 
 
-#define HOJA_ADC_RX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &board_adc_2} 
-#define HOJA_ADC_RY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &board_adc_2} 
+#define HOJA_ADC_RX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &gcp_adc_2} 
+#define HOJA_ADC_RY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &gcp_adc_2} 
 
-#define HOJA_ADC_LT_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &board_adc_hal, .ch_invert = 1} 
-#define HOJA_ADC_RT_CFG (adc_channel_cfg_s) {.ch_local = 3, .driver_cfg = &board_adc_hal, .ch_invert = 1} 
+#define HOJA_ADC_LT_CFG (adc_channel_cfg_s) {.ch_local = 3, .driver_cfg = &gcp_adc_hal, .ch_invert = 1} 
+#define HOJA_ADC_RT_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &gcp_adc_hal, .ch_invert = 1} 
 
 // ---------------------------------
 // ---------------------------------
 
 // Haptic Driver Setup
 // No helper driver used
-#define HOJA_HD_HAPTICS_DRIVER      HD_HAPTICS_DRIVER_HAL
-#define HOJA_HDRUMBLE_CHAN_A_PIN    3
-//#define HOJA_HDRUMBLE_CHAN_B_PIN 24
+#define HOJA_HAPTICS_DRIVER         HAPTICS_DRIVER_HAL
+#define HOJA_HAPTICS_CHAN_A_PIN     3
 
-#define BOARD_SAFE_PCM_MAX      100
-#define BOARD_LO_FREQUENCY_MIN  0.9f
-#define BOARD_HI_FREQUENCY_MIN  0.95f
+#define HOJA_HAPTICS_MAX        0.5f // -30
+
+#define HOJA_HAPTICS_MIN_LO     0.4f // -2
+#define HOJA_HAPTICS_MIN_HI     0.4f
 // ---------------------------------
 // ---------------------------------
 
@@ -98,8 +98,8 @@ extern adc_driver_cfg_s board_adc_hal;
 // Battery Driver Setup
 #define HOJA_BATTERY_DRIVER         BATTERY_DRIVER_BQ25180
 #define HOJA_BATTERY_I2C_INSTANCE   1
-#define HOJA_BATTERY_CAPACITY_MAH   1300
-#define HOJA_BATTERY_PART_CODE      "CTR-003"
+#define HOJA_BATTERY_CAPACITY_MAH   1200
+#define HOJA_BATTERY_PART_CODE      "BDT 903035"
 #define HOJA_BATTERY_CONSUME_RATE   225 // mA
 // ---------------------------------
 // ---------------------------------
@@ -153,7 +153,7 @@ extern adc_driver_cfg_s board_adc_hal;
 // RGB Setup
 #define HOJA_RGB_DRIVER         RGB_DRIVER_HAL
 #define RGB_DRIVER_OUTPUT_PIN   21
-#define RGB_DRIVER_LED_COUNT    32
+#define RGB_DRIVER_LED_COUNT    4
 #define RGB_DRIVER_ORDER        RGB_ORDER_GRB
 #define RGB_DRIVER_PIO_INSTANCE 0
 #define RGB_DRIVER_REFRESHRATE  120 // HZ
@@ -162,8 +162,9 @@ extern adc_driver_cfg_s board_adc_hal;
 #define HOJA_RGB_GROUP_NAMES { \
     {"L Stick"} \
 }
+
 //#define HOJA_RGB_PLAYER_GROUP_IDX   0
-//#define HOJA_RGB_PLAYER_GROUP_SIZE  0
+//#define HOJA_RGB_PLAYER_GROUP_SIZE  4
 
 // L   D   R   U
 // 12, 13, 14, 15
