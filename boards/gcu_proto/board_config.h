@@ -74,10 +74,13 @@ extern adc_driver_cfg_s gcp_adc_hal;
 #define HOJA_HAPTICS_DRIVER         HAPTICS_DRIVER_HAL
 #define HOJA_HAPTICS_CHAN_A_PIN     3
 
-#define HOJA_HAPTICS_MAX        0.5f // -30
+#define HOJA_HAPTICS_MAX        1.0f
 
-#define HOJA_HAPTICS_MIN_LO     0.4f // -2
-#define HOJA_HAPTICS_MIN_HI     0.4f
+#define HOJA_HAPTICS_MIN_LO     0.625f 
+#define HOJA_HAPTICS_MIN_HI     0.625f 
+
+#define HOJA_HAPTICS_DEBUG 0
+#define HOJA_HAPTICS_DEBUG_STEP 0.025f
 // ---------------------------------
 // ---------------------------------
 
