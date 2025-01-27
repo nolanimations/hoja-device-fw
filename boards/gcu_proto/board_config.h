@@ -71,7 +71,7 @@ extern adc_driver_cfg_s gcp_adc_hal;
 
 // Haptic Driver Setup
 // No helper driver used
-#define HOJA_HAPTICS_DRIVER         HAPTICS_DRIVER_HAL
+#define HOJA_HAPTICS_DRIVER         HAPTICS_DRIVER_ERM_HAL
 #define HOJA_HAPTICS_CHAN_A_PIN     3
 
 #define HOJA_HAPTICS_MAX        1.0f
