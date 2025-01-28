@@ -96,6 +96,8 @@ bool cb_hoja_buttons_init()
 
 void cb_hoja_read_buttons(button_data_s *data)
 {
+    static bool first = false;
+
     data->button_a  = !gpio_get(PGPIO_BTN_A);
     data->button_b  = !gpio_get(PGPIO_BTN_B);
     data->button_x  = !gpio_get(PGPIO_BTN_X);
@@ -112,6 +114,15 @@ void cb_hoja_read_buttons(button_data_s *data)
     data->trigger_l     = !gpio_get(PGPIO_BTN_ZL);
     data->trigger_zl    = !gpio_get(PGPIO_BTN_L);
     data->trigger_zr    = !gpio_get(PGPIO_BTN_R);
+
+    if(!first)
+    {
+        if(data->button_plus)
+        {
+            data->trigger_l = true;
+            first = true;
+        }
+    }
 }
 
 int main()
