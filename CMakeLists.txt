@@ -38,6 +38,7 @@ set(BULK_PROJECTS_DIRS
     boards/gcu_r4k 
     boards/gcu_proto 
     boards/gcu_s1 
+    boards/phob_2 
 )
 
 # Iterate through the list
