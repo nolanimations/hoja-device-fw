@@ -8,7 +8,7 @@
 
 adc_driver_cfg_s user_adc_hal = {
     .driver_type = ADC_DRIVER_HAL,
-    .driver_instance  = 0,
+    .driver_instance = 0,
     };
 
 adc_driver_cfg_s user_adc_mux = {
