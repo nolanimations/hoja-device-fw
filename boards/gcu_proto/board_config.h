@@ -99,8 +99,8 @@ extern adc_driver_cfg_s gcp_adc_hal;
 // ---------------------------------
 
 // Battery Driver Setup
-#define HOJA_BATTERY_DRIVER         BATTERY_DRIVER_BQ25180
 #define HOJA_BATTERY_I2C_INSTANCE   1
+#define HOJA_BATTERY_DRIVER         BATTERY_DRIVER_BQ25180
 #define HOJA_BATTERY_CAPACITY_MAH   1200
 #define HOJA_BATTERY_PART_CODE      "BDT 903035"
 #define HOJA_BATTERY_CONSUME_RATE   225 // mA
@@ -156,7 +156,7 @@ extern adc_driver_cfg_s gcp_adc_hal;
 // RGB Setup
 #define HOJA_RGB_DRIVER         RGB_DRIVER_HAL
 #define RGB_DRIVER_OUTPUT_PIN   21
-#define RGB_DRIVER_LED_COUNT    4
+#define RGB_DRIVER_LED_COUNT    32
 #define RGB_DRIVER_ORDER        RGB_ORDER_GRB
 #define RGB_DRIVER_PIO_INSTANCE 0
 #define RGB_DRIVER_REFRESHRATE  120 // HZ
