@@ -72,15 +72,59 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-target_link_libraries(${PROJECT_NAME}
-    PRIVATE
-    hoja_lib
-)
+# Read BLUETOOTH_CONFIG from board_config.h
+file(STRINGS "${CMAKE_CURRENT_LIST_DIR}/board_config.h" BLUETOOTH_CONFIG 
+     REGEX "^[ \t]*#define[ \t]+HOJA_BLUETOOTH_DRIVER[ \t]+.*$")
 
-target_compile_definitions(${PROJECT_NAME}
-	PRIVATE
-	PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
-	)
+# Ensure we have at least one match
+if(BLUETOOTH_CONFIG)
+    # Check if it's ESP32HOJA type
+    if(BLUETOOTH_CONFIG MATCHES "BLUETOOTH_DRIVER_ESP32HOJA")
+        set(BLUETOOTH_DRIVER_VALUE "2")
+        message(STATUS "Found ESP32HOJA Bluetooth driver")
+    elseif(BLUETOOTH_CONFIG MATCHES "BLUETOOTH_DRIVER_HAL")
+        set(BLUETOOTH_DRIVER_VALUE "1")
+        message(STATUS "Found HAL Bluetooth driver")
+    else()
+        set(BLUETOOTH_DRIVER_VALUE "0")
+        message(STATUS "Using default Bluetooth driver")
+    endif()
+else()
+    message(WARNING "HOJA_BLUETOOTH_DRIVER not found in ${CMAKE_CURRENT_LIST_DIR}/board_config.h")
+    set(BLUETOOTH_DRIVER_VALUE "0")
+endif()
+
+# Configure based on the extracted Bluetooth driver value
+if(BLUETOOTH_DRIVER_VALUE STREQUAL "1")
+    message(STATUS "Using Bluetooth driver type HAL")
+    target_link_libraries(${PROJECT_NAME}
+        PRIVATE
+        pico_btstack_cyw43 
+        pico_btstack_hci_transport_cyw43 
+        pico_btstack_ble 
+        pico_btstack_classic 
+        pico_cyw43_arch_threadsafe_background  
+        hoja_lib
+    )
+
+    target_compile_definitions(${PROJECT_NAME}
+        PRIVATE
+        PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
+        CYW43_LWIP=0
+    )
+else()
+    message(STATUS "Using default Bluetooth driver")
+    target_link_libraries(${PROJECT_NAME}
+        PRIVATE
+        hoja_lib
+    )
+
+    target_compile_definitions(${PROJECT_NAME}
+        PRIVATE
+        PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
+    )
+endif()
+
 
 pico_enable_stdio_usb(${PROJECT_NAME} 0)
 pico_enable_stdio_uart(${PROJECT_NAME} 0)
