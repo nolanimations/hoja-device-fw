@@ -99,11 +99,11 @@ if(BLUETOOTH_DRIVER_VALUE STREQUAL "1")
     message(STATUS "Using Bluetooth driver type HAL")
     target_link_libraries(${PROJECT_NAME}
         PRIVATE
+        pico_cyw43_arch_threadsafe_background 
         pico_btstack_cyw43 
         pico_btstack_hci_transport_cyw43 
         pico_btstack_ble 
         pico_btstack_classic 
-        pico_cyw43_arch_threadsafe_background  
         hoja_lib
     )
 
