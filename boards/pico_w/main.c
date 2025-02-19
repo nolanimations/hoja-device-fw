@@ -56,12 +56,16 @@ bool cb_hoja_buttons_init()
 {
     stdio_init_all();
 
+    _local_setup_btn(0);
+    _local_setup_btn(1);
+
     return true;
 }
 
 void cb_hoja_read_buttons(button_data_s *data)
 {
-
+    data->button_a = !gpio_get(0);
+    data->button_b = !gpio_get(1);
 }
 
 int main()
