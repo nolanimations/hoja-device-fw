@@ -57,6 +57,12 @@ add_executable(${PROJECT_NAME}
     main.c
 )
 
+target_compile_definitions(${PROJECT_NAME}
+    PRIVATE
+    CYW43_LWIP=0
+    PICO_FLASH_ASSUME_COREX_SAFE=1
+    )
+
 # Make your targets depend on the timestamp
 add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}_TIMESTAMP)
 
@@ -73,17 +79,12 @@ include_directories(
 )
 
 target_link_libraries(${PROJECT_NAME}
-    PRIVATE
-    hoja_lib
-)
-
-target_compile_definitions(${PROJECT_NAME}
-	PRIVATE
-	PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
-	)
+        PRIVATE
+        hoja_lib
+    )
 
 pico_enable_stdio_usb(${PROJECT_NAME} 0)
-pico_enable_stdio_uart(${PROJECT_NAME} 0)
+pico_enable_stdio_uart(${PROJECT_NAME} 1)
 pico_add_extra_outputs(${PROJECT_NAME})
 
 set(CMAKE_EXE_LINKER_FLAGS "-Wl,--print-memory-usage")
