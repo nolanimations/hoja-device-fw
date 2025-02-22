@@ -23,10 +23,10 @@
 #define SPI_INSTANCE_0        0
 
 // I2C HAL Setup
-#define HOJA_I2C_0_ENABLE       1
-#define HOJA_I2C_0_GPIO_SDA     28
-#define HOJA_I2C_0_GPIO_SCL     29
-#define I2C_INSTANCE_0          0
+// #define HOJA_I2C_0_ENABLE       1
+// #define HOJA_I2C_0_GPIO_SDA     28
+// #define HOJA_I2C_0_GPIO_SCL     29
+// #define I2C_INSTANCE_0          0
 
 // IMU Driver Setup
 #define HOJA_IMU_CHAN_A_DRIVER          IMU_DRIVER_LSM6DSR
@@ -46,13 +46,13 @@
 #define ADC_SMOOTHING_STRENGTH      0
 
 // MCP3002 (2 of them)
-extern adc_driver_cfg_s user_adc_1;
-extern adc_driver_cfg_s user_adc_2;
+extern adc_driver_cfg_s progcc3_adc_1;
+extern adc_driver_cfg_s progcc3_adc_2;
 
-#define HOJA_ADC_LX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &user_adc_1} 
-#define HOJA_ADC_LY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &user_adc_1} 
-#define HOJA_ADC_RX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &user_adc_2} 
-#define HOJA_ADC_RY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &user_adc_2} 
+#define HOJA_ADC_LX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &progcc3_adc_1} 
+#define HOJA_ADC_LY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &progcc3_adc_1} 
+#define HOJA_ADC_RX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &progcc3_adc_2} 
+#define HOJA_ADC_RY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &progcc3_adc_2} 
 // ---------------------------------
 // ---------------------------------
 
@@ -144,7 +144,7 @@ extern adc_driver_cfg_s user_adc_2;
 #define RGB_DRIVER_LED_COUNT    32
 #define RGB_DRIVER_ORDER        RGB_ORDER_GRB
 #define RGB_DRIVER_PIO_INSTANCE 0
-#define RGB_DRIVER_REFRESHRATE  120 // HZ
+#define RGB_DRIVER_REFRESHRATE  90 // HZ
 
 #define HOJA_RGB_GROUPS_NUM 15
 #define HOJA_RGB_GROUP_NAMES { \

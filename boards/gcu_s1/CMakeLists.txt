@@ -59,6 +59,7 @@ add_executable(${PROJECT_NAME}
 
 target_compile_definitions(${PROJECT_NAME}
     PRIVATE
+    PICO_XOSC_STARTUP_DELAY_MULTIPLIER=64
     CYW43_LWIP=0
     PICO_FLASH_ASSUME_COREX_SAFE=1
     )
@@ -84,7 +85,7 @@ target_link_libraries(${PROJECT_NAME}
     )
 
 pico_enable_stdio_usb(${PROJECT_NAME} 0)
-pico_enable_stdio_uart(${PROJECT_NAME} 1)
+pico_enable_stdio_uart(${PROJECT_NAME} 0)
 pico_add_extra_outputs(${PROJECT_NAME})
 
 set(CMAKE_EXE_LINKER_FLAGS "-Wl,--print-memory-usage")

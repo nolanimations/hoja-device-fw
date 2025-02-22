@@ -30,13 +30,13 @@ button_remap_s user_map = {
 };
 */ 
 
-adc_driver_cfg_s user_adc_1 = {
+adc_driver_cfg_s progcc3_adc_1 = {
     .driver_type = ADC_DRIVER_MCP3002,
     .driver_instance  = 0,
     .mcp3002_cfg = {.cs_gpio = 1, .spi_instance = 0}
     };
 
-adc_driver_cfg_s user_adc_2 = {
+adc_driver_cfg_s progcc3_adc_2 = {
     .driver_type = ADC_DRIVER_MCP3002,
     .driver_instance  = 1,
     .mcp3002_cfg = {.cs_gpio = 4, .spi_instance = 0}
