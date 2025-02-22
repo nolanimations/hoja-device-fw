@@ -152,7 +152,7 @@ extern adc_driver_cfg_s user_adc_2;
 #define RGB_DRIVER_LED_COUNT    32
 #define RGB_DRIVER_ORDER        RGB_ORDER_GRB
 #define RGB_DRIVER_PIO_INSTANCE 0
-#define RGB_DRIVER_REFRESHRATE  120 // HZ
+#define RGB_DRIVER_REFRESHRATE  90 // HZ
 
 #define HOJA_RGB_GROUPS_NUM 16
 #define HOJA_RGB_GROUP_NAMES { \
