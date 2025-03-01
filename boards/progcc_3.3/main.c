@@ -30,21 +30,20 @@ button_remap_s user_map = {
 };
 */ 
 
-adc_driver_cfg_s user_adc_1 = {
-    .driver_type = ADC_DRIVER_MCP3002,
-    .driver_instance  = 0,
-    .mcp3002_cfg = {.cs_gpio = 16, .spi_instance = 0}
-    };
-
-adc_driver_cfg_s user_adc_2 = {
-    .driver_type = ADC_DRIVER_MCP3002,
-    .driver_instance  = 1,
-    .mcp3002_cfg = {.cs_gpio = 22, .spi_instance = 0}
-    };
-
-adc_driver_cfg_s battery_adc_1 = {
+adc_driver_cfg_s p33_adc_hal = {
     .driver_type = ADC_DRIVER_HAL,
+    .driver_instance = 0,
+    };
+
+adc_driver_cfg_s p33_adc_mux = {
+    .driver_type = ADC_DRIVER_TMUX1204,
     .driver_instance  = 0,
+    .tmux1204_cfg = {
+        .a0_gpio    = 15,
+        .a1_gpio    = 16,
+        .host_cfg   = &p33_adc_hal,
+        .host_ch_local = 1
+        }
     };
 
 void _local_setup_btn(uint32_t gpio)

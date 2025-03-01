@@ -6,12 +6,9 @@
 
 #define HOJA_BT_LOGGING_DEBUG 0
 
-// Device stuff
-//#define HOJA_DEVICE_ID  0xA004 // A002 is 3+, A003 is 3+ (Haptic), A004 is 3.1
-
 #define HOJA_FW_VERSION 0x0A30
 
-#define HOJA_PRODUCT        "ProGCC 3.2"
+#define HOJA_PRODUCT        "ProGCC 3.3"
 
 // URL that will display to open a config tool
 #define HOJA_WEBUSB_URL     "handheldlegend.github.io/hoja2"
@@ -21,11 +18,11 @@
 // ---------------------------------
 
 // SPI HAL Setup
-#define HOJA_SPI_0_ENABLE     1
-#define HOJA_SPI_0_GPIO_CLK   18
-#define HOJA_SPI_0_GPIO_MOSI  19
-#define HOJA_SPI_0_GPIO_MISO  20
-#define SPI_INSTANCE_0        0
+// #define HOJA_SPI_0_ENABLE     1
+// #define HOJA_SPI_0_GPIO_CLK   18
+// #define HOJA_SPI_0_GPIO_MOSI  19
+// #define HOJA_SPI_0_GPIO_MISO  20
+// #define SPI_INSTANCE_0        0
 
 // I2C HAL Setup
 #define HOJA_I2C_0_ENABLE       1
@@ -34,30 +31,26 @@
 #define I2C_INSTANCE_0          0
 
 // IMU Driver Setup
-#define HOJA_IMU_CHAN_A_DRIVER          IMU_DRIVER_LSM6DSR
-#define HOJA_IMU_CHAN_B_DRIVER          IMU_DRIVER_LSM6DSR
+// #define HOJA_IMU_CHAN_A_DRIVER          IMU_DRIVER_LSM6DSR
+// #define HOJA_IMU_CHAN_B_DRIVER          IMU_DRIVER_LSM6DSR
 
-#define HOJA_IMU_CHAN_A_CS_PIN          17 
-#define HOJA_IMU_CHAN_A_SPI_INSTANCE    0
-#define HOJA_IMU_CHAN_A_INVERT_FLAGS    0b100100
-
-#define HOJA_IMU_CHAN_B_CS_PIN          25 
-#define HOJA_IMU_CHAN_B_SPI_INSTANCE    0
-#define HOJA_IMU_CHAN_B_INVERT_FLAGS    0b010010
 // ---------------------------------
 // ---------------------------------
 
 // Disable smoothing for 3.2
 #define ADC_SMOOTHING_STRENGTH      0
 
-// MCP3002 (2 of them)
-extern adc_driver_cfg_s user_adc_1;
-extern adc_driver_cfg_s user_adc_2;
+// TMUX1204 
+extern adc_driver_cfg_s p33_adc_mux; 
 
-#define HOJA_ADC_LX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &user_adc_1} 
-#define HOJA_ADC_LY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &user_adc_1} 
-#define HOJA_ADC_RX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &user_adc_2} 
-#define HOJA_ADC_RY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &user_adc_2} 
+// HAL ADC (1 instance) 
+extern adc_driver_cfg_s p33_adc_hal; 
+
+#define HOJA_ADC_LX_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &p33_adc_mux} 
+#define HOJA_ADC_LY_CFG (adc_channel_cfg_s) {.ch_local = 2, .driver_cfg = &p33_adc_mux} 
+
+#define HOJA_ADC_RX_CFG (adc_channel_cfg_s) {.ch_local = 3, .driver_cfg = &p33_adc_mux} 
+#define HOJA_ADC_RY_CFG (adc_channel_cfg_s) {.ch_local = 1, .driver_cfg = &p33_adc_mux} 
 // ---------------------------------
 // ---------------------------------
 
@@ -78,16 +71,16 @@ extern adc_driver_cfg_s user_adc_2;
 // ---------------------------------
 
 // Bluetooth Driver Setup
-#define HOJA_BLUETOOTH_DRIVER           BLUETOOTH_DRIVER_ESP32HOJA
-#define BLUETOOTH_DRIVER_I2C_INSTANCE   0
-#define BLUETOOTH_DRIVER_ENABLE_PIN     14
+// #define HOJA_BLUETOOTH_DRIVER           BLUETOOTH_DRIVER_ESP32HOJA
+// #define BLUETOOTH_DRIVER_I2C_INSTANCE   0
+// #define BLUETOOTH_DRIVER_ENABLE_PIN     14
 // ---------------------------------
 // ---------------------------------
 
 // USB Mux Driver Setup
-#define HOJA_USB_MUX_DRIVER         USB_MUX_DRIVER_PI3USB4000A
-#define USB_MUX_DRIVER_ENABLE_PIN   27
-#define USB_MUX_DRIVER_SELECT_PIN   1
+// #define HOJA_USB_MUX_DRIVER         USB_MUX_DRIVER_PI3USB4000A
+// #define USB_MUX_DRIVER_ENABLE_PIN   27
+// #define USB_MUX_DRIVER_SELECT_PIN   1
 // ---------------------------------
 // ---------------------------------
 
@@ -98,17 +91,16 @@ extern adc_driver_cfg_s user_adc_2;
 #define HOJA_BATTERY_PART_CODE      "CTR-003"
 #define HOJA_BATTERY_CONSUME_RATE   150 // mA
 
-// extern adc_driver_cfg_s battery_adc_1;
+// extern adc_driver_cfg_s p33_battery_adc_1;
 // #define HOJA_BATTERY_ADC_CFG (adc_channel_cfg_s) {.ch_local = 0, .driver_cfg = &battery_adc_1} 
-
 // ---------------------------------
 // ---------------------------------
 
 // Device Information Setup 
 #define HOJA_DEVICE_NAME            HOJA_PRODUCT
 #define HOJA_DEVICE_MAKER           HOJA_MANUFACTURER
-#define HOJA_DEVICE_MANIFEST_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.2/manifest.json"
-#define HOJA_DEVICE_FIRMWARE_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.2/progcc_3.2.uf2"
+#define HOJA_DEVICE_MANIFEST_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.3/manifest.json"
+#define HOJA_DEVICE_FIRMWARE_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.3/progcc_3.3.uf2"
 #define HOJA_DEVICE_MANUAL_URL      "https://docs.handheldlegend.com/s/portal/doc/user-guide-wQRaUfU6EM"
 #define HOJA_DEVICE_FCC_ELABEL      ""
 #define HOJA_DEVICE_SNES_SUPPORTED      1
@@ -152,7 +144,7 @@ extern adc_driver_cfg_s user_adc_2;
 
 // RGB Setup
 #define HOJA_RGB_DRIVER         RGB_DRIVER_HAL
-#define RGB_DRIVER_OUTPUT_PIN   23
+#define RGB_DRIVER_OUTPUT_PIN   25
 #define RGB_DRIVER_LED_COUNT    32
 #define RGB_DRIVER_ORDER        RGB_ORDER_GRB
 #define RGB_DRIVER_PIO_INSTANCE 0
