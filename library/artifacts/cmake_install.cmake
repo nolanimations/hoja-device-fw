@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Mitch/GitRepos/hoja-device-fw/library/HOJA-LIB-RP2040
+# Install script for directory: C:/Users/Nolan/Documents/GitHub/hoja-device-fw/library/HOJA-LIB-RP2040
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/hoja_bulk_compile")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/progcc_3.2")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
+    set(CMAKE_INSTALL_CONFIG_NAME "Release")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -34,12 +34,12 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/Mitch/.pico-sdk/toolchain/14_2_Rel1/bin/arm-none-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/msys64/mingw64/bin/arm-none-eabi-objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "C:/Users/Mitch/GitRepos/hoja-device-fw/library/artifacts/install_local_manifest.txt"
+  file(WRITE "C:/Users/Nolan/Documents/GitHub/hoja-device-fw/library/artifacts/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

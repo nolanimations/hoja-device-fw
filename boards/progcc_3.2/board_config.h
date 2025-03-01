@@ -107,8 +107,8 @@ extern adc_driver_cfg_s user_adc_2;
 // Device Information Setup 
 #define HOJA_DEVICE_NAME            HOJA_PRODUCT
 #define HOJA_DEVICE_MAKER           HOJA_MANUFACTURER
-#define HOJA_DEVICE_MANIFEST_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.2/manifest.json"
-#define HOJA_DEVICE_FIRMWARE_URL    "https://raw.githubusercontent.com/HandHeldLegend/hoja-device-fw/main/builds/progcc_3.2/progcc_3.2.uf2"
+#define HOJA_DEVICE_MANIFEST_URL    "https://raw.githubusercontent.com/nolanimations/hoja-device-fw/main/builds/progcc_3.2/manifest.json"
+#define HOJA_DEVICE_FIRMWARE_URL    "https://raw.githubusercontent.com/nolanimations/hoja-device-fw/main/builds/progcc_3.2/progcc_3.2.uf2"
 #define HOJA_DEVICE_MANUAL_URL      "https://docs.handheldlegend.com/s/portal/doc/user-guide-wQRaUfU6EM"
 #define HOJA_DEVICE_FCC_ELABEL      ""
 #define HOJA_DEVICE_SNES_SUPPORTED      1
