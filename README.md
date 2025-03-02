@@ -29,7 +29,7 @@ Based on personal experience, this problem has little effect on gameplay. Howeve
 ---
 
 **PROGCC V3 AND V3.1 ARE EXPERIMENTAL AND UNTESTED!**  
-I do not own these controller versions, so I cannot test this firmware on them. While they should work fine, flash these firmware versions at your own risk!
+I do not own these controller versions, so I cannot test this firmware on them. While they should work fine, flash these firmware versions at your own risk! Make sure to use the correct controller version folder in `/builds`.
 
 ---
 
