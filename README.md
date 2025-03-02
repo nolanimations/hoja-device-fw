@@ -6,7 +6,7 @@ With this firmware installed, only the Z-axis will register shake motion after *
 
 ## Warning
 
-I am mainly using this repo to make is easier for myself to add this functionlity to future firmware updates, and so far I have only tested this modified firmware on my own ProGCC V3.2. So until I get confirmation from others (if there ever will be) that this firmware is functional on their devices, I have no choice but to tell you that **I am not responsible for any potential controller bricking, flash this firmware at your own risk!**
+I am mainly using this repo to make it easier for myself to add this functionality to any future firmware updates, and so far I have only tested this modified firmware on my own ProGCC V3.2. So until I get confirmation from others (if there ever will be) that this firmware is functional on their devices, I have no choice but to tell you that **I am not responsible for any potential controller bricking, flash this firmware at your own risk!**
 
 ## Known Issues
 
