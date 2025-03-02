@@ -13,11 +13,11 @@ From personal testing on a ProGCC V3.2, when motion controls are enabled, your v
   <table>
     <tr>
       <td align="center">
-        <img src="https://s3.gifyu.com/images/bbM66.gif" alt="No shaking performed" width="300"/><br/>
+        <img src="assets/steer1.gif" alt="No shaking performed" width="300"/><br/>
         <strong>No shaking performed</strong>
       </td>
       <td align="center">
-        <img src="https://s3.gifyu.com/images/bbM68.gif" alt="After several shake cycles" width="300"/><br/>
+        <img src="assets/steer2.gif" alt="After several shake cycles" width="300"/><br/>
         <strong>After several shake cycles</strong>
       </td>
     </tr>
@@ -35,8 +35,8 @@ I do not own these controller versions, so I cannot test this firmware on them. 
 
 ## Contributing
 
-Contributions, issues, and pull requests are welcome. If you have suggestions or improvements for this firmware, please feel free to contribute.
+Contributions, issues, and pull requests are welcome. I am fairly unexperienced with firmware development, so if you have suggestions or improvements for this firmware, please feel free to contribute.
 
 ## Contact
 
-If you have any questions or discover more optimal solutions for this firmware, contact me on Discord: `@nolanimations`.
+If you have any questions or discover more optimal solutions for this firmware, contact me on Discord: `@nolanimations`. 
