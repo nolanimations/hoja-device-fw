@@ -10,8 +10,8 @@ if(NOT EXISTS "F:/Pico SDK/tools/pioasm")
   file(MAKE_DIRECTORY "F:/Pico SDK/tools/pioasm")
 endif()
 file(MAKE_DIRECTORY
-  "C:/Users/Nolan/Documents/GitHub/hoja-device-fw/boards/progcc_3/build/pioasm"
-  "C:/Users/Nolan/Documents/GitHub/hoja-device-fw/boards/progcc_3/build/pioasm-install"
+  "C:/Users/Nolan/Documents/GitHub/hoja-device-fw/boards/progcc_3p/build/pioasm"
+  "C:/Users/Nolan/Documents/GitHub/hoja-device-fw/boards/progcc_3p/build/pioasm-install"
   "C:/Users/Nolan/Documents/GitHub/hoja-device-fw/library/artifacts/pioasm/tmp"
   "C:/Users/Nolan/Documents/GitHub/hoja-device-fw/library/artifacts/pioasm/src/pioasmBuild-stamp"
   "C:/Users/Nolan/Documents/GitHub/hoja-device-fw/library/artifacts/pioasm/src"
