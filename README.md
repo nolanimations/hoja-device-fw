@@ -4,6 +4,10 @@ This fork aims to improve the Mario Kart 8 Deluxe experience using the ProGCC by
 
 With this firmware installed, only the Z-axis will register shake motion after *disabling* Motion Controls in the Web Configuration App. Now you can *enable* motion steering in Mario Kart, allowing you to input motion controls through the D-Pad, granting easy access to advanced strategies such as the motion glider, *without* losing the ability to perform shake tricks—since the accelerometer's Z-axis values remain registered.
 
+## Warning
+
+I am mainly using this repo to make is easier for myself to add this functionlity to future firmware updates, and so far I have only tested this modified firmware on my own ProGCC V3.2. So until I get confirmation from others (if there ever will be) that this firmware is functional on their devices, I have no choice but to tell you that **I am not responsible for any potential controller bricking, flash this firmware at your own risk!**
+
 ## Known Issues
 
 The current implementation contains a slight bug.  
